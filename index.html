@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Nitesh Kumar - Culinary Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #d35400;
+            --background-color: #f4f6f7;
+            --text-color: #2c3e50;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            margin-bottom: 15px;
+        }
+        .header p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 50px 0;
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 20px;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .overlay h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        .overlay p {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        @media (max-width: 1200px) {
+            .gallery {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+        .header-image {
+    width: 250px;
+    height: 300px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto 20px;
+    border: 5px solid rgb(255, 255, 255);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.header-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="header-image">
+                    <img src="./30.jpg" alt="Chef Nitesh Kumar">
+                </div>
+                <h1>Nitesh Kumar</h1>
+                <p>Award-Winning Executive Chef | Culinary Innovator | Gastronomic Storyteller</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="gallery">
+            <!-- Dynamic gallery generation -->
+            <script>
+                const gallery = document.querySelector('.gallery');
+                for (let i = 3; i <= 29; i++) {
+                    const galleryItem = document.createElement('div');
+                    galleryItem.classList.add('gallery-item');
+                    
+                    const img = document.createElement('img');
+                    img.src = `./${i}.jpg`;
+                    img.alt = `Culinary Creation ${i}`;
+                    
+                    const overlay = document.createElement('div');
+                    overlay.classList.add('overlay');
+                    overlay.innerHTML = `
+                        <h3>Culinary Masterpiece</h3>
+                        <p>Innovative Gastronomic Design</p>
+                    `;
+                    
+                    galleryItem.appendChild(img);
+                    galleryItem.appendChild(overlay);
+                    gallery.appendChild(galleryItem);
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
