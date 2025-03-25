@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -131,7 +132,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="header-image">
-                    <img src="./30.jpg" alt="Chef Nitesh Kumar">
+                    <img src="./logi.jpg" alt="Chef Nitesh Kumar">
                 </div>
                 <h1>Nitesh Kumar</h1>
                 <p>Award-Winning Executive Chef | Culinary Innovator | Gastronomic Storyteller</p>
@@ -144,13 +145,18 @@
             <!-- Dynamic gallery generation -->
             <script>
                 const gallery = document.querySelector('.gallery');
-                for (let i = 3; i <= 29; i++) {
+                for (let i = 3; i <= 42; i++) {
                     const galleryItem = document.createElement('div');
                     galleryItem.classList.add('gallery-item');
                     
                     const img = document.createElement('img');
-                    img.src = `./${i}.jpg`;
-                    img.alt = `Culinary Creation ${i}`;
+img.src = `./${i}.jpg`;
+
+img.onerror = () => {
+    img.src = `./${i}.jpeg`; // If .jpg fails, try .png
+};
+
+img.alt = `Culinary Creation ${i}`;
                     
                     const overlay = document.createElement('div');
                     overlay.classList.add('overlay');
@@ -168,3 +174,25 @@
     </div>
 </body>
 </html>
+        </div>
+    </div>
+
+    <script>
+        // Custom cursor
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('cursor');
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+
+        // Parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const gallery = document.querySelector('.gallery');
+            const moveX = (e.clientX - window.innerWidth / 2) / 50;
+            const moveY = (e.clientY - window.innerHeight / 2) / 50;
+            
+            gallery.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    </script>
+</body>
+</html> 
